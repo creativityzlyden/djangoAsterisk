@@ -8,8 +8,9 @@ from asterisk_app.ami import connect_asterisk
 class ButtonView(FormView):
     template_name = 'start.html'
     form_class = ButtonForm
+    success_url = 'start1'
 
 
 def button(request):
-    if request.GET.get('start'):
+    if request.POST.post('start'):
         return render(request, 'start.html', connect_asterisk())
